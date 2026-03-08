@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3uffi5i5prbf"]
+
+[ext_resource type="Script" uid="uid://btjobisb6tm1s" path="res://Script/Ratatata.gd" id="1_yhxkv"]
+[ext_resource type="Texture2D" uid="uid://5dbl84invmqr" path="res://asset/Old/powerupGreen_bolt.png" id="2_vpu4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uvys"]
+
+[node name="Ratatata_with_2_Gun" type="Area2D"]
+script = ExtResource("1_yhxkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.24, 2.08)
+texture = ExtResource("2_vpu4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.6, 3.57111)
+shape = SubResource("RectangleShape2D_2uvys")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

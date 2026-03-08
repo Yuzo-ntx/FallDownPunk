@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbfoidbhvqo3"]
+
+[ext_resource type="Script" uid="uid://b82l2latqbn8e" path="res://Script/spawn_localizater.gd" id="1_in2nu"]
+
+[node name="SpawnLocalizater" type="Node2D"]
+script = ExtResource("1_in2nu")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Markers"]
+position = Vector2(45, -33)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers"]
+position = Vector2(125, -33)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers"]
+position = Vector2(201, -33)
+
+[node name="Marker2D4" type="Marker2D" parent="Markers"]
+position = Vector2(262, -34)
+
+[node name="Marker2D5" type="Marker2D" parent="Markers"]
+position = Vector2(313, -34)
+
+[node name="Marker2D6" type="Marker2D" parent="Markers"]
+position = Vector2(359, -34)
+
+[node name="Marker2D7" type="Marker2D" parent="Markers"]
+position = Vector2(411, -34)
+
+[node name="Marker2D8" type="Marker2D" parent="Markers"]
+position = Vector2(459, -34)
+
+[node name="Marker2D9" type="Marker2D" parent="Markers"]
+position = Vector2(518, -34)
+
+[node name="Marker2D10" type="Marker2D" parent="Markers"]
+position = Vector2(580, -34)
+
+[node name="Marker2D11" type="Marker2D" parent="Markers"]
+position = Vector2(625, -35)
+
+[node name="Marker2D12" type="Marker2D" parent="Markers"]
+position = Vector2(676, -35)
+
+[node name="Marker2D13" type="Marker2D" parent="Markers"]
+position = Vector2(732, -35)
+
+[node name="Marker2D14" type="Marker2D" parent="Markers"]
+position = Vector2(790, -38)
+
+[node name="Marker2D15" type="Marker2D" parent="Markers"]
+position = Vector2(852, -40)
+
+[node name="Marker2D16" type="Marker2D" parent="Markers"]
+position = Vector2(895, -40)
+
+[node name="Marker2D17" type="Marker2D" parent="Markers"]
+position = Vector2(940, -40)
+
+[node name="Marker2D18" type="Marker2D" parent="Markers"]
+position = Vector2(990, -35)
+
+[node name="Marker2D19" type="Marker2D" parent="Markers"]
+position = Vector2(1037, -41)
+
+[node name="Marker2D20" type="Marker2D" parent="Markers"]
+position = Vector2(1078, -37)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="speed" type="Timer" parent="."]
+autostart = true
+
+[node name="BigAsteroid" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="speed" to="." method="_on_speed_timeout"]
+[connection signal="timeout" from="BigAsteroid" to="." method="_on_big_asteroid_timeout"]

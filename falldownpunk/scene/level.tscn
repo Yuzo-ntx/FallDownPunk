@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbjv2p3my5nfg"]
+
+[ext_resource type="Script" uid="uid://i2tlm1xs8qi4" path="res://Script/level.gd" id="1_bddx0"]
+[ext_resource type="FontFile" uid="uid://bxmsje0fjmcjc" path="res://asset/Old/kenvector_future.ttf" id="2_u2b8d"]
+[ext_resource type="Texture2D" uid="uid://ccwofggdmnutn" path="res://asset/Backgrounds/blue.png" id="3_aw33w"]
+[ext_resource type="PackedScene" uid="uid://c25q2km7nei01" path="res://scene/character_body_2d.tscn" id="4_ktmlt"]
+[ext_resource type="PackedScene" uid="uid://bcbfoidbhvqo3" path="res://scene/spawn_localizater.tscn" id="5_oxop7"]
+[ext_resource type="PackedScene" uid="uid://bogpl0rpl5g5u" path="res://scene/game_over_bar.tscn" id="6_gunnj"]
+[ext_resource type="PackedScene" uid="uid://btnu5q3p58wda" path="res://scene/health_spawner.tscn" id="7_j35ge"]
+[ext_resource type="PackedScene" uid="uid://x2gk13ugyiv0" path="res://scene/asteroid.tscn" id="8_u2b8d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bddx0"]
+font = ExtResource("2_u2b8d")
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2t4f"]
+font = ExtResource("2_u2b8d")
+font_size = 30
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_bddx0")
+
+[node name="Label2" type="Label" parent="."]
+z_index = 1
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 41.0
+text = "00 KILL"
+label_settings = SubResource("LabelSettings_bddx0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = -1
+process_physics_priority = -1
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aw33w")
+stretch_mode = 1
+
+[node name="Yuzo" parent="." instance=ExtResource("4_ktmlt")]
+position = Vector2(571, 582)
+
+[node name="SpawnLocalizater" parent="." instance=ExtResource("5_oxop7")]
+
+[node name="Label" type="Label" parent="."]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
+z_index = 1
+offset_top = 606.0
+offset_right = 227.0
+offset_bottom = 641.0
+text = "PUNkSHIT: 0"
+label_settings = SubResource("LabelSettings_i2t4f")
+
+[node name="GameOver_Bar" parent="." instance=ExtResource("6_gunnj")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthSpawner" parent="." instance=ExtResource("7_j35ge")]
+
+[node name="FirstAsteroid" parent="." instance=ExtResource("8_u2b8d")]
+visible = false
+
+[connection signal="Ennemis_touch" from="Yuzo" to="." method="_on_yuzo_ennemis_touch"]
+[connection signal="dead" from="Yuzo" to="." method="_on_yuzo_dead"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mark" from="FirstAsteroid" to="." method="_on_first_asteroid_mark"]

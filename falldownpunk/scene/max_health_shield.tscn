@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2bmr8pl3rfht"]
+
+[ext_resource type="Script" uid="uid://bxq6udtl7qdr3" path="res://Script/max_health_shield.gd" id="1_252lr"]
+[ext_resource type="Texture2D" uid="uid://2bhcqgqcwh27" path="res://asset/Old/pill_red.png" id="2_gyeck"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5id1x"]
+radius = 35.171
+
+[node name="MaxHealthShield" type="Area2D"]
+script = ExtResource("1_252lr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.72, 2.96774)
+texture = ExtResource("2_gyeck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5id1x")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

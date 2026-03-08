@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw82g4e6b8o3h"]
+
+[ext_resource type="Script" uid="uid://c4l7rptnbrpvf" path="res://Script/projectille.gd" id="1_4vpd2"]
+[ext_resource type="Texture2D" uid="uid://etvko447t21y" path="res://asset/Old/laserRed05.png" id="2_i8jau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d183n"]
+size = Vector2(10, 39)
+
+[node name="Projectille" type="Area2D"]
+script = ExtResource("1_4vpd2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i8jau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d183n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.5, 1.975)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

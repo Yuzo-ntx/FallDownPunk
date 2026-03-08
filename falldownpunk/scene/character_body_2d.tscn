@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c25q2km7nei01"]
+
+[ext_resource type="Script" uid="uid://cbxqv0uvkgn4c" path="res://Script/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://8fstdf4jac5d" path="res://asset/Old/playerShip2_orange.png" id="2_ghijl"]
+[ext_resource type="FontFile" uid="uid://bxmsje0fjmcjc" path="res://asset/Old/kenvector_future.ttf" id="3_ghijl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44cfe"]
+radius = 43.0465
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghijl"]
+font = ExtResource("3_ghijl")
+font_size = 20
+
+[node name="Yuzo" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_ij6vw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -14)
+texture = ExtResource("2_ghijl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_44cfe")
+
+[node name="playerHealth" type="Label" parent="."]
+offset_left = -104.0
+offset_top = 45.0
+offset_right = 117.0
+offset_bottom = 68.0
+text = "PunkHealth: 100"
+label_settings = SubResource("LabelSettings_ghijl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-2, -55)
+
+[node name="RT1" type="Marker2D" parent="Marker2D"]
+position = Vector2(45, 40)
+
+[node name="RT2" type="Marker2D" parent="Marker2D"]
+position = Vector2(-45, 40)
+
+[node name="Ratata_with_2_Gun" type="Timer" parent="."]
+process_callback = 0
+wait_time = 6.0
+one_shot = true
+
+[node name="Ratata_with_3_Gun" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="InfinityShoot" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Ratata_with_2_Gun" to="." method="_on_ratatata_timeout"]
+[connection signal="timeout" from="Ratata_with_3_Gun" to="." method="_on_ratata_with_3_gun_timeout"]
+[connection signal="timeout" from="InfinityShoot" to="." method="_on_infinity_shoot_timeout"]
