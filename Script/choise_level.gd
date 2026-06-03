@@ -25,3 +25,5 @@ func _on_button_lv_3_pressed() -> void:
 	load_level(3)
 func _on_button_lv_4_pressed() -> void:
 	load_level(4)
+func uk():
+	return
