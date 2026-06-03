@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxpgh88ueajdr"]
+
+[ext_resource type="Script" uid="uid://baalpdyo5ny3c" path="res://Script/shooter.gd" id="1_ojlvl"]
+[ext_resource type="Texture2D" uid="uid://d22xvol8gfmnn" path="res://asset/Enemies/enemyBlack1.png" id="1_w3ieh"]
+[ext_resource type="Texture2D" uid="uid://2k57bfflxh7d" path="res://asset/PunkSmoke/PNG/Explosion/explosion00.png" id="3_1uj5r"]
+[ext_resource type="Texture2D" uid="uid://q3dqnuph3ud7" path="res://asset/PunkSmoke/PNG/Explosion/explosion04.png" id="4_x48il"]
+[ext_resource type="Texture2D" uid="uid://ivkttx7r6cce" path="res://asset/PunkSmoke/PNG/Black smoke/blackSmoke00.png" id="5_5nsy0"]
+[ext_resource type="Texture2D" uid="uid://362f5y1h3vp8" path="res://asset/Effects/shield1.png" id="7_1ah05"]
+[ext_resource type="Texture2D" uid="uid://cfsx242rn03f7" path="res://asset/PunkSmoke/PNG/Explosion/explosion01.png" id="7_d1tkr"]
+[ext_resource type="Texture2D" uid="uid://db6y5wqkwxmg6" path="res://asset/Effects/shield2.png" id="8_d1tkr"]
+[ext_resource type="Texture2D" uid="uid://c7qis22da0qad" path="res://asset/Effects/shield3.png" id="9_m540r"]
+[ext_resource type="Texture2D" uid="uid://c5x0m4a2uxktl" path="res://asset/Effects/speed.png" id="10_dxjrx"]
+[ext_resource type="Texture2D" uid="uid://ba31behktxdvh" path="res://asset/Effects/star1.png" id="11_8acpd"]
+[ext_resource type="Texture2D" uid="uid://bfa64jc8npjio" path="res://asset/Effects/star2.png" id="12_la3yc"]
+[ext_resource type="Texture2D" uid="uid://b0834dkl5hbob" path="res://asset/Effects/star3.png" id="13_ja185"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6r66"]
+radius = 43.1045
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojlvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1uj5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5nsy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x48il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d1tkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ah05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d1tkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m540r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dxjrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8acpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_la3yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ja185")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}]
+
+[node name="Shooter" type="CharacterBody2D"]
+script = ExtResource("1_ojlvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w3ieh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f6r66")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="First_Gun" type="Marker2D" parent="Node2D"]
+position = Vector2(0, 24)
+
+[node name="Second_Gun" type="Marker2D" parent="Node2D"]
+position = Vector2(-15, 47)
+
+[node name="Third_Gun" type="Marker2D" parent="Node2D"]
+position = Vector2(15, 45)
+
+[node name="can_Shoot" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Dead_emite" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.160001, 0.16)
+sprite_frames = SubResource("SpriteFrames_ojlvl")
+animation = &"Dead"
+
+[connection signal="timeout" from="can_Shoot" to="." method="_on_can_shoot_timeout"]

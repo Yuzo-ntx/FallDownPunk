@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3uffi5i5prbf"]
+
+[ext_resource type="Script" uid="uid://btjobisb6tm1s" path="res://Script/Ratatata.gd" id="1_yhxkv"]
+[ext_resource type="Texture2D" uid="uid://bvmq02ji0xg8h" path="res://asset/Power-ups/bold_silver.png" id="2_vpu4d"]
+[ext_resource type="Texture2D" uid="uid://bb0vv308opoj8" path="res://asset/Player_Power_Bar/g36.png" id="3_0qfmp"]
+[ext_resource type="Texture2D" uid="uid://dhblxg58n0gi3" path="res://asset/Player_Power_Bar/g39.png" id="4_3l5ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uvys"]
+
+[node name="Ratatata_with_2_Gun" type="Area2D"]
+scale = Vector2(0.800001, 1)
+script = ExtResource("1_yhxkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.24, 2.08)
+texture = ExtResource("2_vpu4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.6, 3.57111)
+shape = SubResource("RectangleShape2D_2uvys")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="G36" type="Sprite2D" parent="."]
+position = Vector2(3.75, 15)
+rotation = 0.523598
+scale = Vector2(2.86251, 3.30743)
+texture = ExtResource("3_0qfmp")
+
+[node name="G39" type="Sprite2D" parent="."]
+position = Vector2(-5, -17)
+rotation = 0.261799
+scale = Vector2(10.0631, -6.42553)
+texture = ExtResource("4_3l5ud")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2bmr8pl3rfht"]
+
+[ext_resource type="Script" uid="uid://bxq6udtl7qdr3" path="res://Script/max_health_shield.gd" id="1_252lr"]
+[ext_resource type="Texture2D" uid="uid://bll2ohfnq5kt1" path="res://asset/Power-ups/bolt_gold.png" id="2_252lr"]
+[ext_resource type="Texture2D" uid="uid://bb0vv308opoj8" path="res://asset/Player_Power_Bar/g36.png" id="3_ewpcq"]
+[ext_resource type="Texture2D" uid="uid://dhblxg58n0gi3" path="res://asset/Player_Power_Bar/g39.png" id="4_3vale"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5id1x"]
+radius = 35.171
+
+[node name="MaxHealthShield" type="Area2D"]
+scale = Vector2(0.799999, 0.8)
+script = ExtResource("1_252lr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.72, 2.96774)
+texture = ExtResource("2_252lr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5id1x")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="G36" type="Sprite2D" parent="."]
+position = Vector2(3.70578, 22.0068)
+rotation = 0.523598
+scale = Vector2(2.84977, 4.57081)
+texture = ExtResource("3_ewpcq")
+
+[node name="G39" type="Sprite2D" parent="."]
+position = Vector2(-10, -22.5)
+rotation = 0.261799
+scale = Vector2(12.5316, -14.1161)
+texture = ExtResource("4_3vale")
+
+[node name="G40" type="Sprite2D" parent="."]
+position = Vector2(14.7058, -1.99322)
+rotation = 0.261799
+scale = Vector2(6.23319, -3.09307)
+texture = ExtResource("4_3vale")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

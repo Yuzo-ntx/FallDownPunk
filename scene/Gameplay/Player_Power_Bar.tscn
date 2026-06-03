@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://sjntv1yutg5s"]
+
+[ext_resource type="Texture2D" uid="uid://b0k74xjfqp0kf" path="res://asset/Player_Power_Bar/path2.png" id="1_ctoos"]
+[ext_resource type="Script" uid="uid://wucnq05od2dy" path="res://Script/player_power_bar.gd" id="1_d3a7b"]
+[ext_resource type="Texture2D" uid="uid://6kilrobops2m" path="res://asset/Player_Power_Bar/path4.png" id="2_yln0h"]
+[ext_resource type="Texture2D" uid="uid://s3pdp3kqbq2l" path="res://asset/Player_Power_Bar/path5.png" id="3_visy8"]
+[ext_resource type="Texture2D" uid="uid://bos2d51tk8if8" path="res://asset/Player_Power_Bar/path6.png" id="4_ggjo0"]
+
+[node name="Node2D" type="Node2D"]
+z_index = -1
+script = ExtResource("1_d3a7b")
+
+[node name="Health_Bar" type="TextureRect" parent="."]
+offset_left = 233.0
+offset_top = 149.0
+offset_right = 658.0
+offset_bottom = 189.0
+texture = ExtResource("1_ctoos")
+
+[node name="Health_Bar_Background" type="TextureRect" parent="."]
+offset_left = 240.0
+offset_top = 160.0
+offset_right = 647.0
+offset_bottom = 181.0
+texture = ExtResource("2_yln0h")
+
+[node name="Fill1" type="TextureProgressBar" parent="."]
+offset_left = 260.0
+offset_top = 166.0
+offset_right = 644.0
+offset_bottom = 206.0
+value = 100.0
+texture_progress = ExtResource("3_visy8")
+
+[node name="Fill2" type="TextureProgressBar" parent="."]
+offset_left = 261.0
+offset_top = 162.0
+offset_right = 645.0
+offset_bottom = 202.0
+value = 100.0
+texture_progress = ExtResource("4_ggjo0")

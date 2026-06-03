@@ -1,8 +1,8 @@
 extends Area2D
-var speed = 5
+var speed = 30
 var Heal
 func _physics_process(delta: float) -> void:
-	global_position.y += speed 
+	global_position.y += speed * delta
 
 
 

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://xknnj7vidipg"]
+
+[ext_resource type="Script" uid="uid://dlcsdcqe3jm2s" path="res://Script/area_2d.gd" id="1_et44b"]
+[ext_resource type="Texture2D" uid="uid://cj7b2gjyyuqam" path="res://asset/Power-ups/pill_blue.png" id="2_et44b"]
+[ext_resource type="Texture2D" uid="uid://bb0vv308opoj8" path="res://asset/Player_Power_Bar/g36.png" id="3_nn1pn"]
+[ext_resource type="Texture2D" uid="uid://dhblxg58n0gi3" path="res://asset/Player_Power_Bar/g39.png" id="4_1xe4f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8eo6"]
+radius = 45.1774
+
+[node name="Heal Reload" type="Area2D"]
+scale = Vector2(0.560001, 0.56)
+script = ExtResource("1_et44b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o8eo6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.56, 4.061)
+texture = ExtResource("2_et44b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="G36" type="Sprite2D" parent="."]
+position = Vector2(-17.8571, -4.76837e-07)
+rotation = 0.523598
+scale = Vector2(5.02252, 6.03858)
+texture = ExtResource("3_nn1pn")
+
+[node name="G39" type="Sprite2D" parent="."]
+position = Vector2(-25, 21.4286)
+rotation = 0.261799
+scale = Vector2(12.6553, -7.23156)
+texture = ExtResource("4_1xe4f")
+
+[node name="G40" type="Sprite2D" parent="."]
+position = Vector2(1.3113e-06, 19.6429)
+rotation = 0.261799
+scale = Vector2(4.19954, -1.9489)
+texture = ExtResource("4_1xe4f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

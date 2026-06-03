@@ -1,0 +1,207 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddv6d0j4ouguf"]
+
+[ext_resource type="Texture2D" uid="uid://bp0dt6feqpusj" path="res://asset/Jauge_De_Vie/path41.png" id="1_khf3x"]
+[ext_resource type="Script" uid="uid://bqptnmcdpmehe" path="res://Script/health_bar_player.gd" id="1_kqebs"]
+[ext_resource type="Texture2D" uid="uid://nqkp4nn5khml" path="res://asset/Jauge_De_Vie/path43.png" id="2_kqebs"]
+[ext_resource type="Texture2D" uid="uid://br7hw7bh2w851" path="res://asset/Jauge_De_Vie/path44.png" id="3_nlr3s"]
+[ext_resource type="Texture2D" uid="uid://ov7225r85gpk" path="res://asset/Jauge_De_Vie/path45.png" id="4_nfylt"]
+[ext_resource type="Texture2D" uid="uid://c0a0usmnddpuq" path="res://asset/Jauge_De_Vie/g47.png" id="5_fnn21"]
+[ext_resource type="Texture2D" uid="uid://cfu4f6li1dyrr" path="res://asset/Player/playerShip2_orange.png" id="6_2jwq7"]
+[ext_resource type="Texture2D" uid="uid://cu10iahmrhsl4" path="res://asset/Player_Power_Bar/path34.png" id="8_fnn21"]
+[ext_resource type="Texture2D" uid="uid://bb0vv308opoj8" path="res://asset/Player_Power_Bar/g36.png" id="9_2jwq7"]
+[ext_resource type="Texture2D" uid="uid://dhblxg58n0gi3" path="res://asset/Player_Power_Bar/g39.png" id="10_w6qkp"]
+[ext_resource type="Texture2D" uid="uid://b0k74xjfqp0kf" path="res://asset/Player_Power_Bar/path2.png" id="11_31jx4"]
+[ext_resource type="Texture2D" uid="uid://6kilrobops2m" path="res://asset/Player_Power_Bar/path4.png" id="12_nnkrv"]
+[ext_resource type="Texture2D" uid="uid://bwbpv3p0q4ykk" path="res://asset/Player_Power_Bar/Blue.png" id="13_31jx4"]
+[ext_resource type="Texture2D" uid="uid://bos2d51tk8if8" path="res://asset/Player_Power_Bar/path6.png" id="14_gl0d0"]
+
+[node name="HealthBarAsteroid" type="Node2D"]
+z_index = 1
+script = ExtResource("1_kqebs")
+metadata/_edit_group_ = true
+
+[node name="Details" type="TextureRect" parent="."]
+offset_left = 66.0
+offset_top = 83.0
+offset_right = 491.0
+offset_bottom = 112.0
+texture = ExtResource("1_khf3x")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_left = 82.0
+offset_top = 92.0
+offset_right = 479.0
+offset_bottom = 105.0
+texture = ExtResource("2_kqebs")
+stretch_mode = 3
+
+[node name="Fill1" type="TextureProgressBar" parent="."]
+offset_left = 103.0
+offset_top = 92.0
+offset_right = 547.0
+offset_bottom = 105.0
+value = 100.0
+texture_progress = ExtResource("3_nlr3s")
+
+[node name="Fill2" type="TextureProgressBar" parent="."]
+offset_left = 103.0
+offset_top = 92.0
+offset_right = 545.0
+offset_bottom = 96.0
+value = 100.0
+texture_progress = ExtResource("4_nfylt")
+
+[node name="t6" type="TextureRect" parent="."]
+offset_left = 82.0
+offset_top = 83.0
+offset_right = 118.0
+offset_bottom = 118.0
+texture = ExtResource("5_fnn21")
+
+[node name="PlayerShip2Orange" type="Sprite2D" parent="."]
+position = Vector2(86, 97)
+rotation = 0.93806
+scale = Vector2(0.645152, 0.688228)
+texture = ExtResource("6_2jwq7")
+
+[node name="Heart" type="Node2D" parent="."]
+position = Vector2(71, 57)
+scale = Vector2(0.281224, 0.272706)
+metadata/_edit_group_ = true
+
+[node name="Heart" type="TextureRect" parent="Heart"]
+offset_left = 154.0
+offset_top = 49.0
+offset_right = 194.0
+offset_bottom = 89.0
+texture = ExtResource("8_fnn21")
+
+[node name="Texture1" type="TextureRect" parent="Heart"]
+offset_left = 157.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 92.0
+scale = Vector2(0.275933, 0.238684)
+texture = ExtResource("9_2jwq7")
+
+[node name="Texture2" type="TextureRect" parent="Heart"]
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 110.0
+scale = Vector2(0.123934, 0.124704)
+texture = ExtResource("10_w6qkp")
+
+[node name="Heart2" type="Node2D" parent="Heart"]
+position = Vector2(88.8971, 0)
+
+[node name="Heart" type="TextureRect" parent="Heart/Heart2"]
+offset_left = 154.0
+offset_top = 49.0
+offset_right = 194.0
+offset_bottom = 89.0
+texture = ExtResource("8_fnn21")
+
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2"]
+offset_left = 157.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 92.0
+scale = Vector2(0.275933, 0.238684)
+texture = ExtResource("9_2jwq7")
+
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2"]
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 110.0
+scale = Vector2(0.123934, 0.124704)
+texture = ExtResource("10_w6qkp")
+
+[node name="Heart4" type="Node2D" parent="Heart/Heart2"]
+position = Vector2(170.682, 0)
+
+[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4"]
+offset_left = 154.0
+offset_top = 49.0
+offset_right = 194.0
+offset_bottom = 89.0
+texture = ExtResource("8_fnn21")
+
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4"]
+offset_left = 157.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 92.0
+scale = Vector2(0.275933, 0.238684)
+texture = ExtResource("9_2jwq7")
+
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4"]
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 110.0
+scale = Vector2(0.123934, 0.124704)
+texture = ExtResource("10_w6qkp")
+
+[node name="Heart3" type="Node2D" parent="Heart/Heart2/Heart4"]
+position = Vector2(-81.7853, 0)
+
+[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+offset_left = 154.0
+offset_top = 49.0
+offset_right = 194.0
+offset_bottom = 89.0
+texture = ExtResource("8_fnn21")
+
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+offset_left = 157.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 92.0
+scale = Vector2(0.275933, 0.238684)
+texture = ExtResource("9_2jwq7")
+
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 110.0
+scale = Vector2(0.123934, 0.124704)
+texture = ExtResource("10_w6qkp")
+
+[node name="Node2D2" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(19, 64)
+scale = Vector2(0.88, 0.44)
+metadata/_edit_group_ = true
+
+[node name="Health_Bar2" type="TextureRect" parent="Node2D2"]
+offset_left = 70.0
+offset_top = 110.0
+offset_right = 495.0
+offset_bottom = 139.0
+texture = ExtResource("11_31jx4")
+
+[node name="Health_Bar_Background2" type="TextureRect" parent="Node2D2"]
+offset_left = 84.0
+offset_top = 117.0
+offset_right = 491.0
+offset_bottom = 138.0
+texture = ExtResource("12_nnkrv")
+
+[node name="Fill3" type="TextureProgressBar" parent="Node2D2"]
+offset_left = 104.0
+offset_top = 119.0
+offset_right = 488.0
+offset_bottom = 132.0
+value = 100.0
+texture_progress = ExtResource("13_31jx4")
+
+[node name="Fill4" type="TextureProgressBar" parent="Node2D2"]
+offset_left = 105.0
+offset_top = 118.0
+offset_right = 489.0
+offset_bottom = 122.0
+value = 100.0
+texture_progress = ExtResource("14_gl0d0")

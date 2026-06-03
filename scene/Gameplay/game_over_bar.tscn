@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogpl0rpl5g5u"]
+
+[ext_resource type="Script" uid="uid://f33l6elyqegw" path="res://Script/game_over_bar.gd" id="1_sbad2"]
+[ext_resource type="FontFile" uid="uid://bxmsje0fjmcjc" path="res://asset/Old/kenvector_future.ttf" id="2_po3jm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x6b1"]
+font = ExtResource("2_po3jm")
+font_size = 70
+
+[node name="GameOver_Bar" type="CanvasLayer"]
+script = ExtResource("1_sbad2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.243137)
+
+[node name="text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -117.0
+offset_right = 321.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T'es pas Yuzo"
+label_settings = SubResource("LabelSettings_8x6b1")
+
+[node name="text2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -32.0
+offset_right = 480.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "yuzo ne perd jamais"
+label_settings = SubResource("LabelSettings_8x6b1")
+
+[node name="text4" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = 50.0
+offset_right = 704.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IMPOSTEUR !"
+label_settings = SubResource("LabelSettings_8x6b1")
+
+[node name="text3" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -212.0
+offset_right = 251.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_8x6b1")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 145.0
+offset_right = 212.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_po3jm")
+theme_override_font_sizes/font_size = 65
+text = "TRY AGAIN"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://x2gk13ugyiv0"]
+
+[ext_resource type="Script" uid="uid://bsv7s32ncbij2" path="res://Script/asteroid.gd" id="1_3vyb8"]
+[ext_resource type="Texture2D" uid="uid://hpdfg3cd4d5x" path="res://asset/Old/meteorGrey_big1.png" id="2_gktfr"]
+[ext_resource type="Texture2D" uid="uid://362f5y1h3vp8" path="res://asset/Effects/shield1.png" id="3_nxb4b"]
+[ext_resource type="Texture2D" uid="uid://db6y5wqkwxmg6" path="res://asset/Effects/shield2.png" id="4_oun2a"]
+[ext_resource type="Texture2D" uid="uid://c7qis22da0qad" path="res://asset/Effects/shield3.png" id="5_gox3d"]
+[ext_resource type="Texture2D" uid="uid://c5x0m4a2uxktl" path="res://asset/Effects/speed.png" id="6_68own"]
+[ext_resource type="Texture2D" uid="uid://ba31behktxdvh" path="res://asset/Effects/star1.png" id="7_5i7ha"]
+[ext_resource type="Texture2D" uid="uid://bfa64jc8npjio" path="res://asset/Effects/star2.png" id="8_2vbw7"]
+[ext_resource type="Texture2D" uid="uid://b0834dkl5hbob" path="res://asset/Effects/star3.png" id="9_sityo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gfwb"]
+radius = 45.5412
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkyx0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nxb4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oun2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gox3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_68own")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5i7ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2vbw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sityo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="FirstAsteroid" type="Area2D"]
+z_index = -1
+scale = Vector2(0.84, 0.84)
+script = ExtResource("1_3vyb8")
+metadata/_edit_group_ = true
+
+[node name="firstAsteroid" type="Sprite2D" parent="."]
+texture = ExtResource("2_gktfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_8gfwb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-5.52227, -3.79047)
+scale = Vector2(0.22622, -0.183488)
+sprite_frames = SubResource("SpriteFrames_xkyx0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw82g4e6b8o3h"]
+
+[ext_resource type="Script" uid="uid://c4l7rptnbrpvf" path="res://Script/projectille.gd" id="1_4vpd2"]
+[ext_resource type="Texture2D" uid="uid://etvko447t21y" path="res://asset/Old/laserRed05.png" id="2_i8jau"]
+[ext_resource type="Texture2D" uid="uid://di7k8jj8nx16f" path="res://asset/Lasers/laserRed01.png" id="3_c4fk6"]
+[ext_resource type="Texture2D" uid="uid://bwhynajr8ik4t" path="res://asset/Lasers/laserRed08.png" id="5_gpa0v"]
+[ext_resource type="Texture2D" uid="uid://cjp60ke4b4prb" path="res://asset/Lasers/laserRed02.png" id="6_joybk"]
+[ext_resource type="Texture2D" uid="uid://cmvh6btbmdkym" path="res://asset/Lasers/laserRed10.png" id="6_k6wd6"]
+[ext_resource type="Texture2D" uid="uid://cflwiggi54j7d" path="res://asset/Lasers/laserRed04.png" id="6_to28o"]
+[ext_resource type="Texture2D" uid="uid://dmxpnm551e2wt" path="res://asset/Lasers/laserRed05.png" id="7_wujrp"]
+[ext_resource type="Texture2D" uid="uid://dygeal7cfgmr4" path="res://asset/Lasers/laserRed06.png" id="8_7h14g"]
+[ext_resource type="Texture2D" uid="uid://bo874yftpkwxj" path="res://asset/Lasers/laserRed03.png" id="8_to28o"]
+[ext_resource type="Texture2D" uid="uid://cup45uvcb5dp8" path="res://asset/Lasers/laserRed07.png" id="9_hi258"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d183n"]
+size = Vector2(10, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpa0v"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("5_gpa0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k6wd6")
+}],
+"loop": false,
+"name": &"Enemy_touched",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c4fk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_joybk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_to28o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_to28o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wujrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hi258")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7h14g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Projectille" type="Area2D"]
+script = ExtResource("1_4vpd2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_i8jau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d183n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1, 2.6)
+
+[node name="Lighter" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gpa0v")
+frame = 4
+frame_progress = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://cet8uevnwphl7"]
+
+[ext_resource type="Texture2D" uid="uid://b0k74xjfqp0kf" path="res://asset/Player_Power_Bar/path2.png" id="1_duhjh"]
+[ext_resource type="Script" uid="uid://dv2x7fmrrk67c" path="res://Script/1_rst_power_bar.gd" id="1_nxkko"]
+[ext_resource type="Texture2D" uid="uid://6kilrobops2m" path="res://asset/Player_Power_Bar/path4.png" id="2_nxkko"]
+[ext_resource type="Texture2D" uid="uid://s3pdp3kqbq2l" path="res://asset/Player_Power_Bar/path5.png" id="4_nxkko"]
+[ext_resource type="Texture2D" uid="uid://c6uiofcqwdf7k" path="res://asset/Player_Power_Bar/bg.png" id="5_fcdje"]
+[ext_resource type="Texture2D" uid="uid://cjnx1igju52r0" path="res://asset/Player_Power_Bar/g8.png" id="5_g1wex"]
+[ext_resource type="Texture2D" uid="uid://c7m26ao03k02k" path="res://asset/Player_Power_Bar/path10.png" id="6_qw7qs"]
+[ext_resource type="Texture2D" uid="uid://utri845spuxh" path="res://asset/Player_Power_Bar/path11.png" id="7_w6i6q"]
+[ext_resource type="Texture2D" uid="uid://ubp2ovixq4n6" path="res://asset/Player_Power_Bar/path12.png" id="8_e1v5v"]
+
+[node name="1rst_Power_bar" type="Node2D"]
+script = ExtResource("1_nxkko")
+
+[node name="Health_Bar" type="TextureRect" parent="."]
+offset_left = 235.0
+offset_top = 120.0
+offset_right = 660.0
+offset_bottom = 149.0
+texture = ExtResource("1_duhjh")
+
+[node name="Health_Bar_Background" type="TextureRect" parent="."]
+offset_left = 242.0
+offset_top = 126.0
+offset_right = 649.0
+offset_bottom = 143.0
+texture = ExtResource("2_nxkko")
+
+[node name="Fill1" type="TextureProgressBar" parent="."]
+offset_left = 262.0
+offset_top = 130.0
+offset_right = 646.0
+offset_bottom = 143.0
+value = 100.0
+texture_progress = ExtResource("4_nxkko")
+
+[node name="Fill2" type="TextureProgressBar" parent="."]
+offset_left = 263.0
+offset_top = 126.0
+offset_right = 647.0
+offset_bottom = 130.0
+value = 100.0
+texture_progress = ExtResource("5_fcdje")
+
+[node name="Thunder" type="Node2D" parent="."]
+position = Vector2(232, 101)
+scale = Vector2(1.10345, 1.08)
+
+[node name="t1" type="TextureRect" parent="Thunder"]
+offset_left = 28.0937
+offset_top = 24.0741
+offset_right = 68.0937
+offset_bottom = 64.0741
+scale = Vector2(0.659996, 0.523959)
+texture = ExtResource("5_g1wex")
+
+[node name="t2" type="TextureRect" parent="Thunder"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_qw7qs")
+
+[node name="t3" type="TextureRect" parent="Thunder"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_w6i6q")
+
+[node name="t4" type="TextureRect" parent="Thunder"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_e1v5v")
+
+[node name="t5" type="TextureRect" parent="Thunder"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="t6" type="TextureRect" parent="Thunder"]
+offset_right = 40.0
+offset_bottom = 40.0

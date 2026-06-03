@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://c25q2km7nei01"]
+
+[ext_resource type="Script" uid="uid://cbxqv0uvkgn4c" path="res://Script/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="SpriteFrames" uid="uid://6iuvrn85tcyn" path="res://scene/Player/Spawn/animation/character_body_2d.tres" id="2_tvs6y"]
+[ext_resource type="FontFile" uid="uid://bxmsje0fjmcjc" path="res://asset/Old/kenvector_future.ttf" id="3_ghijl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44cfe"]
+radius = 43.0465
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghijl"]
+font = ExtResource("3_ghijl")
+font_size = 20
+
+[node name="Yuzo" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_ij6vw")
+
+[node name="Animation" type="Node2D" parent="."]
+
+[node name="LR" type="AnimatedSprite2D" parent="Animation"]
+position = Vector2(1, 2)
+scale = Vector2(1.2, 1.2)
+sprite_frames = ExtResource("2_tvs6y")
+animation = &"Stand"
+
+[node name="Power_Timer" type="Node2D" parent="."]
+
+[node name="Ratata_with_2_Gun" type="Timer" parent="Power_Timer"]
+process_callback = 0
+wait_time = 6.0
+one_shot = true
+
+[node name="InfinityShoot" type="Timer" parent="Power_Timer"]
+wait_time = 5.0
+
+[node name="Ratata_with_3_Gun" type="Timer" parent="Power_Timer"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Attaque" type="Node2D" parent="."]
+
+[node name="Projectile_Spawn" type="Marker2D" parent="Attaque"]
+position = Vector2(-2, -52)
+
+[node name="RT1" type="Marker2D" parent="Attaque/Projectile_Spawn"]
+position = Vector2(45, 37)
+
+[node name="RT2" type="Marker2D" parent="Attaque/Projectile_Spawn"]
+position = Vector2(-45, 37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_44cfe")
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="playerHealth" type="Label" parent="Stats"]
+visible = false
+offset_left = -104.0
+offset_top = 45.0
+offset_right = 117.0
+offset_bottom = 68.0
+text = "PunkHealth: 100"
+label_settings = SubResource("LabelSettings_ghijl")
+
+[node name="Player" type="Sprite2D" parent="."]
+visible = false
+
+[connection signal="timeout" from="Power_Timer/Ratata_with_2_Gun" to="." method="_on_ratatata_timeout"]
+[connection signal="timeout" from="Power_Timer/InfinityShoot" to="." method="_on_infinity_shoot_timeout"]
+[connection signal="timeout" from="Power_Timer/Ratata_with_3_Gun" to="." method="_on_ratata_with_3_gun_timeout"]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=16 format=3 uid="uid://y80xessj7u6r"]
+
+[ext_resource type="PackedScene" uid="uid://btnu5q3p58wda" path="res://scene/Player/Health/health_spawner.tscn" id="1_vi4ta"]
+[ext_resource type="PackedScene" uid="uid://c25q2km7nei01" path="res://scene/Player/Spawn/character_body_2d.tscn" id="2_i77tw"]
+[ext_resource type="PackedScene" uid="uid://bks412r1mel6n" path="res://scene/Ennemie/Shooter/enemy_shooter_spawn.tscn" id="3_doceb"]
+[ext_resource type="PackedScene" uid="uid://bcbfoidbhvqo3" path="res://scene/Ennemie/Asteroid/Asteroids_Spawner.tscn" id="4_n5rgy"]
+[ext_resource type="FontFile" uid="uid://bxmsje0fjmcjc" path="res://asset/Old/kenvector_future.ttf" id="5_y3j2n"]
+[ext_resource type="Texture2D" uid="uid://pjan4u0fp8wx" path="res://asset/Backgrounds/darkPurple.png" id="6_vi4ta"]
+[ext_resource type="PackedScene" uid="uid://bogpl0rpl5g5u" path="res://scene/Gameplay/game_over_bar.tscn" id="7_8fchv"]
+[ext_resource type="PackedScene" uid="uid://ddv6d0j4ouguf" path="res://scene/Gameplay/Health_Bar_Player.tscn" id="8_ovhgs"]
+[ext_resource type="PackedScene" uid="uid://cet8uevnwphl7" path="res://scene/Gameplay/1_rst_power_bar.tscn" id="9_mqdtg"]
+[ext_resource type="PackedScene" uid="uid://sjntv1yutg5s" path="res://scene/Gameplay/Player_Power_Bar.tscn" id="10_erake"]
+[ext_resource type="Texture2D" uid="uid://bll2ohfnq5kt1" path="res://asset/Power-ups/bolt_gold.png" id="11_yq6rn"]
+[ext_resource type="PackedScene" uid="uid://d10pm6x7nxo4i" path="res://scene/Gameplay/Menu.tscn" id="12_8iu0s"]
+[ext_resource type="Script" uid="uid://disabl8m18a25" path="res://Script/button.gd" id="13_3804f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bddx0"]
+font = ExtResource("5_y3j2n")
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2t4f"]
+font = ExtResource("5_y3j2n")
+font_size = 30
+
+[node name="Level 3" type="Node2D"]
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="HealthSpawner" parent="Interactables" instance=ExtResource("1_vi4ta")]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Yuzo" parent="Player" groups=["Player"] instance=ExtResource("2_i77tw")]
+position = Vector2(571, 582)
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy_Shooter_Spawn" parent="Enemy" instance=ExtResource("3_doceb")]
+
+[node name="SpawnLocalizater" parent="Enemy" instance=ExtResource("4_n5rgy")]
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = 8.0
+offset_top = 561.0
+offset_right = 156.0
+offset_bottom = 598.0
+text = "KILL: 00"
+label_settings = SubResource("LabelSettings_bddx0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = -1
+process_physics_priority = -1
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_vi4ta")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
+visible = false
+z_index = 1
+offset_left = 6.0
+offset_top = 607.0
+offset_right = 233.0
+offset_bottom = 642.0
+text = "PUNkSHIT: 0"
+label_settings = SubResource("LabelSettings_i2t4f")
+
+[node name="GameOver_Bar" parent="." instance=ExtResource("7_8fchv")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Enemy_Shooter_Spawn" parent="." instance=ExtResource("3_doceb")]
+
+[node name="Player_Health_Bar" parent="." instance=ExtResource("8_ovhgs")]
+z_index = 2
+position = Vector2(-49, -52)
+
+[node name="1rst_Power_bar" parent="." instance=ExtResource("9_mqdtg")]
+z_index = 1
+position = Vector2(-66, -3)
+scale = Vector2(0.469058, 0.626872)
+
+[node name="Node2D" parent="." instance=ExtResource("10_erake")]
+visible = false
+position = Vector2(-217, 0)
+scale = Vector2(1, 0.280001)
+
+[node name="BoltGold" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(32, 31)
+scale = Vector2(1.33892, 1.32535)
+texture = ExtResource("11_yq6rn")
+
+[node name="Menu" parent="." instance=ExtResource("12_8iu0s")]
+visible = false
+offset_left = 563.0
+offset_top = 341.0
+offset_right = 563.0
+offset_bottom = 341.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1086.0
+offset_top = 39.0
+offset_right = 1094.0
+offset_bottom = 47.0
+scale = Vector2(1.25896, 1.32534)
+text = "| |"
+script = ExtResource("13_3804f")
+
+[connection signal="dead" from="Player/Yuzo" to="." method="_on_yuzo_dead"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

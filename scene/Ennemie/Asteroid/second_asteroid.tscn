@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://dkt711du26m5m"]
+
+[ext_resource type="Script" uid="uid://c83ul27y0yoeu" path="res://Script/second_asteroid.gd" id="1_ufj7m"]
+[ext_resource type="Texture2D" uid="uid://ck6tpu2glqh57" path="res://asset/Old/meteorBrown_big1.png" id="2_ot8jd"]
+[ext_resource type="Texture2D" uid="uid://362f5y1h3vp8" path="res://asset/Effects/shield1.png" id="3_jdoqv"]
+[ext_resource type="Texture2D" uid="uid://db6y5wqkwxmg6" path="res://asset/Effects/shield2.png" id="4_6beci"]
+[ext_resource type="Texture2D" uid="uid://c7qis22da0qad" path="res://asset/Effects/shield3.png" id="5_ic2pp"]
+[ext_resource type="Texture2D" uid="uid://c5x0m4a2uxktl" path="res://asset/Effects/speed.png" id="6_vbhhw"]
+[ext_resource type="Texture2D" uid="uid://ba31behktxdvh" path="res://asset/Effects/star1.png" id="7_0k5rc"]
+[ext_resource type="Texture2D" uid="uid://ivkttx7r6cce" path="res://asset/PunkSmoke/PNG/Black smoke/blackSmoke00.png" id="7_2g20c"]
+[ext_resource type="Texture2D" uid="uid://bfa64jc8npjio" path="res://asset/Effects/star2.png" id="8_m31d1"]
+[ext_resource type="Texture2D" uid="uid://b0834dkl5hbob" path="res://asset/Effects/star3.png" id="9_10a4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gfwb"]
+radius = 60.4975
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ka66u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2g20c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jdoqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6beci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ic2pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vbhhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0k5rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m31d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_10a4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="SecondAsteroid" type="Area2D"]
+z_index = -1
+scale = Vector2(0.64, 0.64)
+script = ExtResource("1_ufj7m")
+metadata/_edit_group_ = true
+
+[node name="firstAsteroid" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.92628)
+texture = ExtResource("2_ot8jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.30649, 1.0472)
+shape = SubResource("CircleShape2D_8gfwb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(5.3265, 4.50562)
+
+[node name="Hit" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, -14)
+scale = Vector2(0.369744, 0.275765)
+sprite_frames = SubResource("SpriteFrames_ka66u")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
