@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dic2ersvwjtiw"]
+
+[ext_resource type="Script" uid="uid://c4wl50iu0ciql" path="res://scene/Ennemie/Boss/boss_final.gd" id="1_3on2q"]
+[ext_resource type="Texture2D" uid="uid://dukub8t68nhj3" path="res://asset/Enemies/enemyBlack4.png" id="1_dj0jl"]
+[ext_resource type="Texture2D" uid="uid://d22xvol8gfmnn" path="res://asset/Enemies/enemyBlack1.png" id="1_hvo1x"]
+[ext_resource type="Texture2D" uid="uid://bf4mh0xx47qr4" path="res://asset/Enemies/enemyBlack2.png" id="2_3on2q"]
+[ext_resource type="Texture2D" uid="uid://lamgoc7x357p" path="res://asset/Enemies/enemyBlack3.png" id="3_rhbp5"]
+[ext_resource type="Texture2D" uid="uid://cxi7iaaoyo6h5" path="res://asset/Enemies/enemyBlack5.png" id="5_jaffh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0ya7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0ya7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hvo1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3on2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rhbp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_dj0jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jaffh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="BossFinal" type="CharacterBody2D" unique_id=871134861]
+script = ExtResource("1_3on2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349604871]
+shape = SubResource("RectangleShape2D_u0ya7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=800007693]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=7214300]
+visible = false
+position = Vector2(-1, -3)
+sprite_frames = SubResource("SpriteFrames_u0ya7")
+frame_progress = 0.5166905
+
+[node name="lot" type="Node2D" parent="." unique_id=1182753824]
+scale = Vector2(0.72, 0.6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="lot" unique_id=1314753351]
+z_index = 1
+position = Vector2(0, -24.999998)
+scale = Vector2(-2.2667012, 6.333338)
+texture = ExtResource("1_dj0jl")
+
+[node name="EnemyBlack3" type="Sprite2D" parent="lot" unique_id=988682968]
+position = Vector2(-3.9999995, 42.000004)
+scale = Vector2(-5.0140715, 2.3633635)
+texture = ExtResource("3_rhbp5")
+
+[node name="EnemyBlack2" type="Sprite2D" parent="lot" unique_id=375231117]
+position = Vector2(-1.3888888, 78.893295)
+scale = Vector2(1, 4.7882547)
+texture = ExtResource("2_3on2q")
+
+[node name="EnemyBlack5" type="Sprite2D" parent="lot" unique_id=2053385914]
+position = Vector2(1, -86)
+scale = Vector2(4.9849844, 5.206667)
+texture = ExtResource("5_jaffh")
+
+[node name="can_shoot" type="Timer" parent="." unique_id=1376318912]
+
+[connection signal="timeout" from="can_shoot" to="." method="_on_can_shoot_timeout"]

@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdhxxyvn8intj"]
+[gd_scene format=3 uid="uid://bdhxxyvn8intj"]
 
 [ext_resource type="Script" uid="uid://m3geffcchiyi" path="res://Script/shooter_red.gd" id="1_un00t"]
 [ext_resource type="Texture2D" uid="uid://356ojgbrymo2" path="res://asset/Enemies/enemyRed1.png" id="2_un00t"]
 [ext_resource type="Texture2D" uid="uid://2k57bfflxh7d" path="res://asset/PunkSmoke/PNG/Explosion/explosion00.png" id="3_f2t6y"]
+[ext_resource type="Texture2D" uid="uid://m6nh5xnh6412" path="res://asset/Enemies/enemyRed2.png" id="3_woy24"]
 [ext_resource type="Texture2D" uid="uid://q3dqnuph3ud7" path="res://asset/PunkSmoke/PNG/Explosion/explosion04.png" id="4_aw1hx"]
+[ext_resource type="Texture2D" uid="uid://3wnf22rc3ns5" path="res://asset/Enemies/enemyRed3.png" id="4_f3j2k"]
 [ext_resource type="Texture2D" uid="uid://ivkttx7r6cce" path="res://asset/PunkSmoke/PNG/Black smoke/blackSmoke00.png" id="5_7x8ud"]
+[ext_resource type="Texture2D" uid="uid://c1gyabj2ujet8" path="res://asset/Enemies/enemyRed4.png" id="5_hvnba"]
+[ext_resource type="Texture2D" uid="uid://r77nv0s6tmi4" path="res://asset/Enemies/enemyRed5.png" id="6_3u7sc"]
 [ext_resource type="Texture2D" uid="uid://cfsx242rn03f7" path="res://asset/PunkSmoke/PNG/Explosion/explosion01.png" id="7_blr17"]
 [ext_resource type="Texture2D" uid="uid://362f5y1h3vp8" path="res://asset/Effects/shield1.png" id="8_7x8ud"]
 [ext_resource type="Texture2D" uid="uid://cs6p0tsxe4imh" path="res://asset/PunkSmoke/PNG/Explosion/explosion03.png" id="8_lryoc"]
@@ -17,6 +21,29 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6r66"]
 radius = 43.1045
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0ya7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_un00t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_woy24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f3j2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hvnba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3u7sc")
+}],
+"loop": 1,
+"name": &"Stand",
+"speed": 7.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ojlvl"]
 animations = [{
@@ -57,40 +84,42 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_hvnba")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dead",
 "speed": 5.0
 }]
 
-[node name="ShooterRed" type="CharacterBody2D"]
+[node name="ShooterRed" type="CharacterBody2D" unique_id=319965180]
 script = ExtResource("1_un00t")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_un00t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1914978081]
 shape = SubResource("CircleShape2D_f6r66")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=142492127]
 
-[node name="First_Gun" type="Marker2D" parent="Node2D"]
+[node name="First_Gun" type="Marker2D" parent="Node2D" unique_id=802681152]
 position = Vector2(0, 24)
 
-[node name="Second_Gun" type="Marker2D" parent="Node2D"]
+[node name="Second_Gun" type="Marker2D" parent="Node2D" unique_id=36633628]
 position = Vector2(-15, 47)
 
-[node name="Third_Gun" type="Marker2D" parent="Node2D"]
+[node name="Third_Gun" type="Marker2D" parent="Node2D" unique_id=2089935958]
 position = Vector2(15, 45)
 
-[node name="can_Shoot" type="Timer" parent="."]
+[node name="can_Shoot" type="Timer" parent="." unique_id=1892988963]
 wait_time = 0.5
 
-[node name="Dead_emite" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="Node2D" parent="." unique_id=660099782]
+
+[node name="Stand_animation" type="AnimatedSprite2D" parent="Animation" unique_id=570406733]
+sprite_frames = SubResource("SpriteFrames_u0ya7")
+animation = &"Stand"
+frame_progress = 0.105290465
+
+[node name="Dead_emite" type="AnimatedSprite2D" parent="Animation" unique_id=1628098400]
 visible = false
 scale = Vector2(0.160001, 0.16)
 sprite_frames = SubResource("SpriteFrames_ojlvl")
 animation = &"Dead"
-frame = 4
-frame_progress = 1.0
 
 [connection signal="timeout" from="can_Shoot" to="." method="_on_can_shoot_timeout"]

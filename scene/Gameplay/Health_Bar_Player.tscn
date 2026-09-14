@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddv6d0j4ouguf"]
+[gd_scene format=3 uid="uid://ddv6d0j4ouguf"]
 
 [ext_resource type="Texture2D" uid="uid://bp0dt6feqpusj" path="res://asset/Jauge_De_Vie/path41.png" id="1_khf3x"]
 [ext_resource type="Script" uid="uid://bqptnmcdpmehe" path="res://Script/health_bar_player.gd" id="1_kqebs"]
@@ -15,19 +15,19 @@
 [ext_resource type="Texture2D" uid="uid://bwbpv3p0q4ykk" path="res://asset/Player_Power_Bar/Blue.png" id="13_31jx4"]
 [ext_resource type="Texture2D" uid="uid://bos2d51tk8if8" path="res://asset/Player_Power_Bar/path6.png" id="14_gl0d0"]
 
-[node name="HealthBarAsteroid" type="Node2D"]
+[node name="HealthBarAsteroid" type="Node2D" unique_id=892187659]
 z_index = 1
 script = ExtResource("1_kqebs")
 metadata/_edit_group_ = true
 
-[node name="Details" type="TextureRect" parent="."]
+[node name="Details" type="TextureRect" parent="." unique_id=9630984]
 offset_left = 66.0
 offset_top = 83.0
 offset_right = 491.0
 offset_bottom = 112.0
 texture = ExtResource("1_khf3x")
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." unique_id=1273248345]
 offset_left = 82.0
 offset_top = 92.0
 offset_right = 479.0
@@ -35,15 +35,15 @@ offset_bottom = 105.0
 texture = ExtResource("2_kqebs")
 stretch_mode = 3
 
-[node name="Fill1" type="TextureProgressBar" parent="."]
+[node name="Fill1" type="TextureProgressBar" parent="." unique_id=1177189585]
 offset_left = 103.0
 offset_top = 92.0
-offset_right = 547.0
+offset_right = 477.0
 offset_bottom = 105.0
 value = 100.0
 texture_progress = ExtResource("3_nlr3s")
 
-[node name="Fill2" type="TextureProgressBar" parent="."]
+[node name="Fill2" type="TextureProgressBar" parent="." unique_id=170491849]
 offset_left = 103.0
 offset_top = 92.0
 offset_right = 545.0
@@ -51,32 +51,32 @@ offset_bottom = 96.0
 value = 100.0
 texture_progress = ExtResource("4_nfylt")
 
-[node name="t6" type="TextureRect" parent="."]
+[node name="t6" type="TextureRect" parent="." unique_id=291216574]
 offset_left = 82.0
 offset_top = 83.0
 offset_right = 118.0
 offset_bottom = 118.0
 texture = ExtResource("5_fnn21")
 
-[node name="PlayerShip2Orange" type="Sprite2D" parent="."]
+[node name="PlayerShip2Orange" type="Sprite2D" parent="." unique_id=415596412]
 position = Vector2(86, 97)
 rotation = 0.93806
 scale = Vector2(0.645152, 0.688228)
 texture = ExtResource("6_2jwq7")
 
-[node name="Heart" type="Node2D" parent="."]
+[node name="Heart" type="Node2D" parent="." unique_id=240642667]
 position = Vector2(71, 57)
 scale = Vector2(0.281224, 0.272706)
 metadata/_edit_group_ = true
 
-[node name="Heart" type="TextureRect" parent="Heart"]
+[node name="Heart" type="TextureRect" parent="Heart" unique_id=782403863]
 offset_left = 154.0
 offset_top = 49.0
 offset_right = 194.0
 offset_bottom = 89.0
 texture = ExtResource("8_fnn21")
 
-[node name="Texture1" type="TextureRect" parent="Heart"]
+[node name="Texture1" type="TextureRect" parent="Heart" unique_id=79324216]
 offset_left = 157.0
 offset_top = 52.0
 offset_right = 197.0
@@ -84,7 +84,7 @@ offset_bottom = 92.0
 scale = Vector2(0.275933, 0.238684)
 texture = ExtResource("9_2jwq7")
 
-[node name="Texture2" type="TextureRect" parent="Heart"]
+[node name="Texture2" type="TextureRect" parent="Heart" unique_id=951982946]
 offset_left = 160.0
 offset_top = 70.0
 offset_right = 200.0
@@ -92,17 +92,17 @@ offset_bottom = 110.0
 scale = Vector2(0.123934, 0.124704)
 texture = ExtResource("10_w6qkp")
 
-[node name="Heart2" type="Node2D" parent="Heart"]
+[node name="Heart2" type="Node2D" parent="Heart" unique_id=1122814988]
 position = Vector2(88.8971, 0)
 
-[node name="Heart" type="TextureRect" parent="Heart/Heart2"]
+[node name="Heart" type="TextureRect" parent="Heart/Heart2" unique_id=588984999]
 offset_left = 154.0
 offset_top = 49.0
 offset_right = 194.0
 offset_bottom = 89.0
 texture = ExtResource("8_fnn21")
 
-[node name="Texture1" type="TextureRect" parent="Heart/Heart2"]
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2" unique_id=1440066113]
 offset_left = 157.0
 offset_top = 52.0
 offset_right = 197.0
@@ -110,7 +110,7 @@ offset_bottom = 92.0
 scale = Vector2(0.275933, 0.238684)
 texture = ExtResource("9_2jwq7")
 
-[node name="Texture2" type="TextureRect" parent="Heart/Heart2"]
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2" unique_id=641374822]
 offset_left = 160.0
 offset_top = 70.0
 offset_right = 200.0
@@ -118,17 +118,17 @@ offset_bottom = 110.0
 scale = Vector2(0.123934, 0.124704)
 texture = ExtResource("10_w6qkp")
 
-[node name="Heart4" type="Node2D" parent="Heart/Heart2"]
+[node name="Heart4" type="Node2D" parent="Heart/Heart2" unique_id=630174759]
 position = Vector2(170.682, 0)
 
-[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4"]
+[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4" unique_id=507826380]
 offset_left = 154.0
 offset_top = 49.0
 offset_right = 194.0
 offset_bottom = 89.0
 texture = ExtResource("8_fnn21")
 
-[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4"]
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4" unique_id=72624392]
 offset_left = 157.0
 offset_top = 52.0
 offset_right = 197.0
@@ -136,7 +136,7 @@ offset_bottom = 92.0
 scale = Vector2(0.275933, 0.238684)
 texture = ExtResource("9_2jwq7")
 
-[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4"]
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4" unique_id=1763383141]
 offset_left = 160.0
 offset_top = 70.0
 offset_right = 200.0
@@ -144,17 +144,17 @@ offset_bottom = 110.0
 scale = Vector2(0.123934, 0.124704)
 texture = ExtResource("10_w6qkp")
 
-[node name="Heart3" type="Node2D" parent="Heart/Heart2/Heart4"]
+[node name="Heart3" type="Node2D" parent="Heart/Heart2/Heart4" unique_id=1065861785]
 position = Vector2(-81.7853, 0)
 
-[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+[node name="Heart" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3" unique_id=740103232]
 offset_left = 154.0
 offset_top = 49.0
 offset_right = 194.0
 offset_bottom = 89.0
 texture = ExtResource("8_fnn21")
 
-[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+[node name="Texture1" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3" unique_id=700196673]
 offset_left = 157.0
 offset_top = 52.0
 offset_right = 197.0
@@ -162,7 +162,7 @@ offset_bottom = 92.0
 scale = Vector2(0.275933, 0.238684)
 texture = ExtResource("9_2jwq7")
 
-[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3"]
+[node name="Texture2" type="TextureRect" parent="Heart/Heart2/Heart4/Heart3" unique_id=39796506]
 offset_left = 160.0
 offset_top = 70.0
 offset_right = 200.0
@@ -170,27 +170,27 @@ offset_bottom = 110.0
 scale = Vector2(0.123934, 0.124704)
 texture = ExtResource("10_w6qkp")
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Node2D2" type="Node2D" parent="." unique_id=1419733553]
 z_index = -1
 position = Vector2(19, 64)
 scale = Vector2(0.88, 0.44)
 metadata/_edit_group_ = true
 
-[node name="Health_Bar2" type="TextureRect" parent="Node2D2"]
+[node name="Health_Bar2" type="TextureRect" parent="Node2D2" unique_id=805848182]
 offset_left = 70.0
 offset_top = 110.0
 offset_right = 495.0
 offset_bottom = 139.0
 texture = ExtResource("11_31jx4")
 
-[node name="Health_Bar_Background2" type="TextureRect" parent="Node2D2"]
+[node name="Health_Bar_Background2" type="TextureRect" parent="Node2D2" unique_id=251578740]
 offset_left = 84.0
 offset_top = 117.0
 offset_right = 491.0
 offset_bottom = 138.0
 texture = ExtResource("12_nnkrv")
 
-[node name="Fill3" type="TextureProgressBar" parent="Node2D2"]
+[node name="Fill3" type="TextureProgressBar" parent="Node2D2" unique_id=419198619]
 offset_left = 104.0
 offset_top = 119.0
 offset_right = 488.0
@@ -198,7 +198,7 @@ offset_bottom = 132.0
 value = 100.0
 texture_progress = ExtResource("13_31jx4")
 
-[node name="Fill4" type="TextureProgressBar" parent="Node2D2"]
+[node name="Fill4" type="TextureProgressBar" parent="Node2D2" unique_id=1027241545]
 offset_left = 105.0
 offset_top = 118.0
 offset_right = 489.0

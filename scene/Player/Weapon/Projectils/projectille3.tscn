@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://c11lqr5d4t4hm"]
+
+[ext_resource type="Script" uid="uid://2w81bchf8o0n" path="res://scene/Player/Weapon/Projectils/projectille_3.gd" id="1_agkey"]
+[ext_resource type="Texture2D" uid="uid://etvko447t21y" path="res://asset/Old/laserRed05.png" id="2_dmxpm"]
+[ext_resource type="Texture2D" uid="uid://bs70n5vurwlvj" path="res://asset/Lasers/laserBlue08.png" id="3_7hu21"]
+[ext_resource type="Texture2D" uid="uid://bwhynajr8ik4t" path="res://asset/Lasers/laserRed08.png" id="3_b8fgq"]
+[ext_resource type="Texture2D" uid="uid://cr1kjqdyc3c0x" path="res://asset/Lasers/laserBlue10.png" id="4_t56s3"]
+[ext_resource type="Texture2D" uid="uid://cmvh6btbmdkym" path="res://asset/Lasers/laserRed10.png" id="4_tatud"]
+[ext_resource type="Texture2D" uid="uid://dleb0gec1qy2t" path="res://asset/Lasers/laserBlue01.png" id="5_1isfr"]
+[ext_resource type="Texture2D" uid="uid://di7k8jj8nx16f" path="res://asset/Lasers/laserRed01.png" id="5_m2q6n"]
+[ext_resource type="Texture2D" uid="uid://jsxstep67p5e" path="res://asset/Lasers/laserGreen14.png" id="5_svl5k"]
+[ext_resource type="Texture2D" uid="uid://cjp60ke4b4prb" path="res://asset/Lasers/laserRed02.png" id="6_4utuk"]
+[ext_resource type="Texture2D" uid="uid://ch0ky6yxiiuu3" path="res://asset/Lasers/laserGreen11.png" id="6_pwgdj"]
+[ext_resource type="Texture2D" uid="uid://cc6wxsqdk25dr" path="res://asset/Lasers/laserGreen16.png" id="7_p8ftx"]
+[ext_resource type="Texture2D" uid="uid://cflwiggi54j7d" path="res://asset/Lasers/laserRed04.png" id="7_qh2hw"]
+[ext_resource type="Texture2D" uid="uid://bo874yftpkwxj" path="res://asset/Lasers/laserRed03.png" id="8_6cfn7"]
+[ext_resource type="Texture2D" uid="uid://but1gbggr55r4" path="res://asset/Lasers/laserBlue02.png" id="8_svl5k"]
+[ext_resource type="Texture2D" uid="uid://sdeogtmwf8o3" path="res://asset/Lasers/laserGreen04.png" id="9_p8ftx"]
+[ext_resource type="Texture2D" uid="uid://cup45uvcb5dp8" path="res://asset/Lasers/laserRed07.png" id="10_f3s3d"]
+[ext_resource type="Texture2D" uid="uid://cu887o5u1rgb1" path="res://asset/Lasers/laserBlue03.png" id="11_2rhj7"]
+[ext_resource type="Texture2D" uid="uid://dygeal7cfgmr4" path="res://asset/Lasers/laserRed06.png" id="11_3dfrc"]
+[ext_resource type="Texture2D" uid="uid://cwilmtg34jj8e" path="res://asset/Lasers/laserGreen05.png" id="12_0xody"]
+[ext_resource type="Texture2D" uid="uid://dnd47kwciog3r" path="res://asset/Lasers/laserBlue04.png" id="14_qepwv"]
+[ext_resource type="Texture2D" uid="uid://dc6u8jcsyhv2t" path="res://asset/Lasers/laserGreen08.png" id="15_hu6o4"]
+[ext_resource type="Texture2D" uid="uid://c6pyjfl222jon" path="res://asset/Lasers/laserBlue05.png" id="17_qejqa"]
+[ext_resource type="Texture2D" uid="uid://8gnvjo15r7ir" path="res://asset/Lasers/laserGreen06.png" id="18_newby"]
+[ext_resource type="Texture2D" uid="uid://dbavra18jdae7" path="res://asset/Lasers/laserBlue07.png" id="19_xr5nn"]
+[ext_resource type="Texture2D" uid="uid://dadq4k0eulbla" path="res://asset/Lasers/laserRed14.png" id="20_h1xd5"]
+[ext_resource type="Texture2D" uid="uid://bmwnvk8iedmrj" path="res://asset/Lasers/laserBlue06.png" id="21_l2u0t"]
+[ext_resource type="Texture2D" uid="uid://71yoyq4d2dw7" path="res://asset/Lasers/laserGreen12.png" id="22_o01t2"]
+[ext_resource type="Texture2D" uid="uid://ymjt2q1070h7" path="res://asset/Lasers/laserGreen10.png" id="24_jwi6r"]
+[ext_resource type="Texture2D" uid="uid://0blmrq240527" path="res://asset/Lasers/laserBlue12.png" id="26_jtg2l"]
+[ext_resource type="Texture2D" uid="uid://lsthhlf4dbrg" path="res://asset/Lasers/laserGreen02.png" id="27_s356x"]
+[ext_resource type="Texture2D" uid="uid://v4r6os4mg25x" path="res://asset/Lasers/laserBlue13.png" id="28_lqkn0"]
+[ext_resource type="Texture2D" uid="uid://b7oih5fuht0r" path="res://asset/Lasers/laserGreen03.png" id="29_0gdq5"]
+[ext_resource type="Texture2D" uid="uid://clmeqsxtrd76e" path="res://asset/Lasers/laserRed13.png" id="30_ahami"]
+[ext_resource type="Texture2D" uid="uid://cenm0tbbu3b6m" path="res://asset/Lasers/laserBlue14.png" id="31_e65v1"]
+[ext_resource type="Texture2D" uid="uid://djxnnp05fh2m3" path="res://asset/Lasers/laserGreen09.png" id="32_aui5r"]
+[ext_resource type="Texture2D" uid="uid://tu15bt2rt2l" path="res://asset/Lasers/laserBlue15.png" id="33_1klxw"]
+[ext_resource type="Texture2D" uid="uid://dagnshxlfad8m" path="res://asset/Lasers/laserGreen07.png" id="34_athdc"]
+[ext_resource type="Texture2D" uid="uid://bqav4fsg5nont" path="res://asset/Lasers/laserRed15.png" id="35_1l5hx"]
+[ext_resource type="Texture2D" uid="uid://droek3un77sq7" path="res://asset/Lasers/laserBlue16.png" id="36_xvslx"]
+[ext_resource type="Texture2D" uid="uid://g6gnefnxd8p1" path="res://asset/Lasers/laserRed16.png" id="37_ombyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d183n"]
+size = Vector2(10, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpa0v"]
+animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("5_svl5k")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_t56s3")
+}, {
+"duration": 0.1,
+"texture": ExtResource("3_b8fgq")
+}, {
+"duration": 0.3,
+"texture": ExtResource("7_p8ftx")
+}, {
+"duration": 0.1,
+"texture": ExtResource("3_7hu21")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_tatud")
+}],
+"loop": 0,
+"name": &"Enemy_touched",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1isfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pwgdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m2q6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_svl5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p8ftx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4utuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2rhj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0xody")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6cfn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qepwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hu6o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qh2hw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qejqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_newby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xr5nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h1xd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_newby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_l2u0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_o01t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3dfrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xr5nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jwi6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f3s3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_jtg2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_s356x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6cfn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lqkn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0gdq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ahami")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_e65v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_aui5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h1xd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_1klxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_athdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_1l5hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xvslx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jwi6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ombyq")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Projectille3" type="Area2D" unique_id=1948501258]
+script = ExtResource("1_agkey")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361562003]
+visible = false
+texture = ExtResource("2_dmxpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656985146]
+visible = false
+shape = SubResource("RectangleShape2D_d183n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=14974824]
+visible = false
+scale = Vector2(1, 2.6)
+
+[node name="Lighter" type="AnimatedSprite2D" parent="." unique_id=241035833]
+sprite_frames = SubResource("SpriteFrames_gpa0v")
+animation = &"Enemy_touched"
+frame = 4
+frame_progress = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

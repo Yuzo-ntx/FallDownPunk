@@ -2,9 +2,12 @@ extends Area2D
 
 var Health = 5
 var velocity = 70
-var rotation_speed = 0.5
+var rotation_speed = 0
 var damage = 5
 var alive = true
+
+func _ready() -> void:
+	$firstAsteroid.play("default")
 
 func _physics_process(delta: float) -> void:
 	global_position.y += velocity * delta

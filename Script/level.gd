@@ -6,7 +6,8 @@ extends Node2D
 @onready var Player = $Player/Yuzo
 @onready var Menu = $Menu
 @onready var kill = $Label2
-
+@onready var Boss = preload("res://scene/Ennemie/Boss/boss_final.tscn")
+@onready var Inscription = preload("res://asset/better-terrain/editor/TerrainProperties.tscn")
 
 var yuzo_is_alive = true
 var Score = 0
@@ -14,6 +15,8 @@ var score_ennemi = 0
 var damage_of_small_asteroid_over_yuzo_on_asteroid_exited_screen = 5
 var damage_of_Big_asteroid_over_yuzo_on_asteroid_exited_screen = 20
 
+func _ready() -> void:
+	return
 func _physics_process(delta: float) -> void:
 	#get_tree().current_scene.get_tree().paused = false
 	if yuzo_is_alive :
@@ -52,6 +55,9 @@ func get_shield():
 func connect_health_bar_to_the_player():
 	$HealthBarAsteroid.assign_to_the_player($Player/Yuzo.Health)
 
+func co():
+	$BossHealth.visible = false
+
 func connect_power_bar_to_player():
 	$Node2D.assign_to_the_player($Player/Yuzo.Shield)
 
@@ -76,3 +82,13 @@ func _on_button_pressed() -> void:
 	$Menu._on_pause_pressed()
 	$Button.visible = false
 	$Button.visible = true
+
+func BossDead():
+	$Enemy/Enemy_Shooter_Spawn.BossGone()
+	$Enemy/SpawnLocalizater.BossGone()
+
+func _on_show_boss_timeout() -> void:
+	$ShooterRed.readyGo()
+	$BossHealth.visible = true
+	$Enemy/Enemy_Shooter_Spawn.WaitBoss()
+	$Enemy/SpawnLocalizater.WaitBoss()

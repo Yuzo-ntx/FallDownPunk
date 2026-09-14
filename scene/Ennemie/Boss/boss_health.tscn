@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b0kfsdisr6n2a"]
+
+[ext_resource type="Script" uid="uid://cuvx08ppcrfwi" path="res://scene/Ennemie/Boss/boss_health.gd" id="1_nobdr"]
+[ext_resource type="Texture2D" uid="uid://cd4wq87aoi087" path="res://asset/HP_Health_Bar 3/4.png" id="1_w4xvk"]
+[ext_resource type="Texture2D" uid="uid://dt0ginbepgveh" path="res://asset/HP_Health_Bar 3/3.png" id="2_nobdr"]
+[ext_resource type="Texture2D" uid="uid://bfttouywvva8u" path="res://asset/HP_Health_Bar 3/path139.png" id="3_4ysrj"]
+[ext_resource type="Texture2D" uid="uid://dukub8t68nhj3" path="res://asset/Enemies/enemyBlack4.png" id="4_r5enl"]
+[ext_resource type="Texture2D" uid="uid://lamgoc7x357p" path="res://asset/Enemies/enemyBlack3.png" id="5_5j3oi"]
+[ext_resource type="Texture2D" uid="uid://bf4mh0xx47qr4" path="res://asset/Enemies/enemyBlack2.png" id="6_bqw0m"]
+[ext_resource type="Texture2D" uid="uid://cxi7iaaoyo6h5" path="res://asset/Enemies/enemyBlack5.png" id="7_jh8rh"]
+[ext_resource type="Texture2D" uid="uid://doop6q803tr8n" path="res://asset/HP_Health_Bar 3/g137.png" id="8_rf6hs"]
+
+[node name="BossHealth" type="Node2D" unique_id=1175065038]
+position = Vector2(-2, 0)
+script = ExtResource("1_nobdr")
+metadata/_edit_group_ = true
+
+[node name="4" type="Sprite2D" parent="." unique_id=1222915731]
+position = Vector2(224, 7.5)
+texture = ExtResource("1_w4xvk")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1173861924]
+offset_left = 39.0
+offset_top = -1.5
+offset_right = 411.0
+offset_bottom = 16.5
+max_value = 500.0
+value = 500.0
+texture_progress = ExtResource("2_nobdr")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="." unique_id=280759933]
+offset_left = 36.0
+offset_top = -2.5
+offset_right = 405.0
+offset_bottom = 15.5
+max_value = 100000.0
+value = 100000.0
+texture_progress = ExtResource("3_4ysrj")
+metadata/_edit_use_anchors_ = true
+
+[node name="lot" type="Node2D" parent="." unique_id=500621500]
+position = Vector2(20.999998, 14)
+scale = Vector2(0.13724765, 0.11471769)
+
+[node name="Sprite2D" type="Sprite2D" parent="lot" unique_id=416696542]
+z_index = 1
+position = Vector2(0, -24.999998)
+scale = Vector2(-2.2667012, 6.333338)
+texture = ExtResource("4_r5enl")
+
+[node name="EnemyBlack3" type="Sprite2D" parent="lot" unique_id=1697942499]
+position = Vector2(-3.9999995, 42.000004)
+scale = Vector2(-5.0140715, 2.3633635)
+texture = ExtResource("5_5j3oi")
+
+[node name="EnemyBlack2" type="Sprite2D" parent="lot" unique_id=121735645]
+position = Vector2(-1.3888888, 78.893295)
+scale = Vector2(1, 4.7882547)
+texture = ExtResource("6_bqw0m")
+
+[node name="EnemyBlack5" type="Sprite2D" parent="lot" unique_id=329433078]
+position = Vector2(1, -86)
+scale = Vector2(4.9849844, 5.206667)
+texture = ExtResource("7_jh8rh")
+
+[node name="G137" type="Sprite2D" parent="." unique_id=242108633]
+position = Vector2(222, 6.5)
+texture = ExtResource("8_rf6hs")

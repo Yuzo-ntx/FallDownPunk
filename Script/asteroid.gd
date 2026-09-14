@@ -3,9 +3,12 @@ extends Area2D
 signal mark
 
 var speed = 100
-var rotation_speed = 0.5
+var rotation_speed = 0
 var damage = 2
 var ast = true
+func _ready() -> void:
+	$firstAsteroid.play("default")
+
 
 func _physics_process(delta: float) -> void:
 	global_position.y += speed * delta

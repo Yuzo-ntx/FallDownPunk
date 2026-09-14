@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c25q2km7nei01"]
+[gd_scene format=3 uid="uid://c25q2km7nei01"]
 
 [ext_resource type="Script" uid="uid://cbxqv0uvkgn4c" path="res://Script/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="SpriteFrames" uid="uid://6iuvrn85tcyn" path="res://scene/Player/Spawn/animation/character_body_2d.tres" id="2_tvs6y"]
@@ -11,49 +11,49 @@ radius = 43.0465
 font = ExtResource("3_ghijl")
 font_size = 20
 
-[node name="Yuzo" type="CharacterBody2D"]
+[node name="Yuzo" type="CharacterBody2D" unique_id=809109317]
 z_index = 1
 script = ExtResource("1_ij6vw")
 
-[node name="Animation" type="Node2D" parent="."]
+[node name="Animation" type="Node2D" parent="." unique_id=1185450085]
 
-[node name="LR" type="AnimatedSprite2D" parent="Animation"]
+[node name="LR" type="AnimatedSprite2D" parent="Animation" unique_id=1186291646]
 position = Vector2(1, 2)
 scale = Vector2(1.2, 1.2)
 sprite_frames = ExtResource("2_tvs6y")
 animation = &"Stand"
 
-[node name="Power_Timer" type="Node2D" parent="."]
+[node name="Power_Timer" type="Node2D" parent="." unique_id=30962615]
 
-[node name="Ratata_with_2_Gun" type="Timer" parent="Power_Timer"]
+[node name="Ratata_with_2_Gun" type="Timer" parent="Power_Timer" unique_id=1412791852]
 process_callback = 0
 wait_time = 6.0
 one_shot = true
 
-[node name="InfinityShoot" type="Timer" parent="Power_Timer"]
+[node name="InfinityShoot" type="Timer" parent="Power_Timer" unique_id=1589290095]
 wait_time = 5.0
 
-[node name="Ratata_with_3_Gun" type="Timer" parent="Power_Timer"]
+[node name="Ratata_with_3_Gun" type="Timer" parent="Power_Timer" unique_id=457774489]
 wait_time = 3.0
 one_shot = true
 
-[node name="Attaque" type="Node2D" parent="."]
+[node name="Attaque" type="Node2D" parent="." unique_id=798906825]
 
-[node name="Projectile_Spawn" type="Marker2D" parent="Attaque"]
+[node name="Projectile_Spawn" type="Marker2D" parent="Attaque" unique_id=415408936]
 position = Vector2(-2, -52)
 
-[node name="RT1" type="Marker2D" parent="Attaque/Projectile_Spawn"]
+[node name="RT1" type="Marker2D" parent="Attaque/Projectile_Spawn" unique_id=1118358714]
 position = Vector2(45, 37)
 
-[node name="RT2" type="Marker2D" parent="Attaque/Projectile_Spawn"]
+[node name="RT2" type="Marker2D" parent="Attaque/Projectile_Spawn" unique_id=1812665939]
 position = Vector2(-45, 37)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1521616383]
 shape = SubResource("CircleShape2D_44cfe")
 
-[node name="Stats" type="Node2D" parent="."]
+[node name="Stats" type="Node2D" parent="." unique_id=501953321]
 
-[node name="playerHealth" type="Label" parent="Stats"]
+[node name="playerHealth" type="Label" parent="Stats" unique_id=354460139]
 visible = false
 offset_left = -104.0
 offset_top = 45.0
@@ -62,7 +62,7 @@ offset_bottom = 68.0
 text = "PunkHealth: 100"
 label_settings = SubResource("LabelSettings_ghijl")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="." unique_id=1222115184]
 visible = false
 
 [connection signal="timeout" from="Power_Timer/Ratata_with_2_Gun" to="." method="_on_ratatata_timeout"]

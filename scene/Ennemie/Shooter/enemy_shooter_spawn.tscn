@@ -1,51 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://bks412r1mel6n"]
+[gd_scene format=3 uid="uid://bks412r1mel6n"]
 
 [ext_resource type="Script" uid="uid://wrfljs4tky4j" path="res://Script/node_2d.gd" id="1_v3hae"]
 
-[node name="Enemy_Shooter_Spawn" type="Node2D"]
+[node name="Enemy_Shooter_Spawn" type="Node2D" unique_id=1302406980]
 script = ExtResource("1_v3hae")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=748117832]
 position = Vector2(-3, 8)
 
-[node name="Marker2D4" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D4" type="Marker2D" parent="Marker2D" unique_id=379536839]
 position = Vector2(5, 163)
 
-[node name="Marker2D5" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D5" type="Marker2D" parent="Marker2D" unique_id=2066582368]
 position = Vector2(1, 108)
 
-[node name="Marker2D2" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D2" type="Marker2D" parent="Marker2D" unique_id=825020410]
 position = Vector2(3, 34)
 
-[node name="Marker2D3" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D3" type="Marker2D" parent="Marker2D" unique_id=1045225254]
 position = Vector2(1, 67)
 
-[node name="Marker2D6" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D6" type="Marker2D" parent="Marker2D" unique_id=1622594836]
 position = Vector2(1171, 167)
 
-[node name="Marker2D7" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D7" type="Marker2D" parent="Marker2D" unique_id=1728730718]
 position = Vector2(1170, 130)
 
-[node name="Marker2D8" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D8" type="Marker2D" parent="Marker2D" unique_id=1736701346]
 position = Vector2(1168, 26)
 
-[node name="Marker2D9" type="Marker2D" parent="Marker2D"]
+[node name="Marker2D9" type="Marker2D" parent="Marker2D" unique_id=235696342]
 position = Vector2(1172, 85)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+[node name="Timer" type="Timer" parent="." unique_id=319291651]
+wait_time = 10.0
 autostart = true
 
-[node name="Timer3" type="Timer" parent="Timer"]
-wait_time = 30.0
+[node name="Timer3" type="Timer" parent="Timer" unique_id=1005905011]
+wait_time = 20.0
 autostart = true
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 125.0
+[node name="Timer2" type="Timer" parent="." unique_id=1142910847]
+wait_time = 15.0
 autostart = true
 
-[node name="Enemy_red_can_spawn" type="Timer" parent="Timer2"]
-wait_time = 50.0
+[node name="Enemy_red_can_spawn" type="Timer" parent="Timer2" unique_id=1082322519]
+wait_time = 25.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

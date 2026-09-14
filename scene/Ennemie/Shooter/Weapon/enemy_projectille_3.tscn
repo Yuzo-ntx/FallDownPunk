@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://m35xdkn4fny4"]
+
+[ext_resource type="Script" uid="uid://c8ndp1pdmlb4n" path="res://scene/Ennemie/Shooter/Weapon/enemy_projectille_3.gd" id="1_w26cf"]
+[ext_resource type="Texture2D" uid="uid://b4ouq3kh5rl5a" path="res://asset/Lasers/laserBlue11.png" id="2_5je32"]
+[ext_resource type="Texture2D" uid="uid://cr1kjqdyc3c0x" path="res://asset/Lasers/laserBlue10.png" id="3_ckm1n"]
+[ext_resource type="Texture2D" uid="uid://b755va5stylnp" path="res://asset/Lasers/laserBlue09.png" id="4_0kj5n"]
+[ext_resource type="Texture2D" uid="uid://bs70n5vurwlvj" path="res://asset/Lasers/laserBlue08.png" id="5_e0ysq"]
+[ext_resource type="Texture2D" uid="uid://dleb0gec1qy2t" path="res://asset/Lasers/laserBlue01.png" id="6_fewnu"]
+[ext_resource type="Texture2D" uid="uid://but1gbggr55r4" path="res://asset/Lasers/laserBlue02.png" id="7_vicq3"]
+[ext_resource type="Texture2D" uid="uid://cu887o5u1rgb1" path="res://asset/Lasers/laserBlue03.png" id="8_jhfr5"]
+[ext_resource type="Texture2D" uid="uid://dnd47kwciog3r" path="res://asset/Lasers/laserBlue04.png" id="9_vjgr8"]
+[ext_resource type="Texture2D" uid="uid://c6pyjfl222jon" path="res://asset/Lasers/laserBlue05.png" id="10_fjoj7"]
+[ext_resource type="Texture2D" uid="uid://bmwnvk8iedmrj" path="res://asset/Lasers/laserBlue06.png" id="11_pq82w"]
+[ext_resource type="Texture2D" uid="uid://dbavra18jdae7" path="res://asset/Lasers/laserBlue07.png" id="12_lvwlu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gr5ju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5je32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ckm1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0kj5n")
+}, {
+"duration": 1.6,
+"texture": ExtResource("5_e0ysq")
+}],
+"loop": 1,
+"name": &"Enemy_touche",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fewnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vicq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jhfr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vjgr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fjoj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pq82w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lvwlu")
+}],
+"loop": 1,
+"name": &"Tir",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ny1p"]
+size = Vector2(20, 43)
+
+[node name="Enemy_Projectille3" type="Area2D" unique_id=1209600890]
+script = ExtResource("1_w26cf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1058715602]
+sprite_frames = SubResource("SpriteFrames_gr5ju")
+animation = &"Tir"
+frame_progress = 0.296181
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1624920020]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_2ny1p")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1167118070]
+position = Vector2(0, -1)
+scale = Vector2(1, 2.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

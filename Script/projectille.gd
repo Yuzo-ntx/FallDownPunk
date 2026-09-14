@@ -6,6 +6,9 @@ var Speed = 20
 var touched = false
 var Damage = 10
 
+func _ready() -> void:
+	$Lighter.play("default")
+
 func _physics_process(delta: float) -> void:
 	if touched == false:
 		global_position.y -= Speed
@@ -28,5 +31,5 @@ func Enemy_touch_effect():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("get_damage"):
-		body.get_damage()
+		body.get_damage(Damage)
 		Enemy_touch_effect()

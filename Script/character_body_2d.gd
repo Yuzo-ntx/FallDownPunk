@@ -5,6 +5,8 @@ signal dead
 
 #Once the game start
 @onready var projectille_instance = preload("res://scene/Player/Weapon/Projectils/projectille.tscn")
+@onready var projectille_instance2 = preload("res://scene/Player/Weapon/Projectils/projectille2.tscn")
+@onready var projectille_instance3 = preload("res://scene/Player/Weapon/Projectils/projectille3.tscn")
 @onready var Rata = $Attaque/Projectile_Spawn.get_children()
 
 # Player Soul management
@@ -16,6 +18,7 @@ var SpeedVelocityNormal = 500
 var rotationS = -0.2
 var damage = 10
 # Health Center
+var Name = "Yuzo"
 var Health = 100
 var MaxHealth = 100
 var Shield = 0
@@ -29,6 +32,8 @@ var infinityShoot = false
 var Active_Power = false
 var pause = false
 
+func _ready() -> void:
+	Stand_animation()
 # Player Brain
 func _physics_process(delta):
 	
@@ -37,10 +42,25 @@ func _physics_process(delta):
 	global_position = global_position.clamp(Vector2(0,0), maxsize)
 	# Mouvement management
 	AllMovement()
+	
+	#PlayerInfo
+	PlayerInformation()
+	
+	#SavingPlayer
+	SavePlayerInformation()
 
+func SavePlayerInformation():
+	if Input.is_action_just_pressed("SavePlayer"):
+		GameManager.Player_Register(Name, Health, MaxHealth, 
+		Shield, MaxShield, power, "1", "Blue", "Master")
+
+
+func PlayerInformation():
+	if Input.is_action_just_pressed("PlayerProfil"):
+		GameManager.PlayerInformation()
 # Player control Management
 func AllMovement():
-	
+	#$Animation/LR.play("Stand")
 	velocity = Vector2(0,0)
 	move_top()
 	move_down()
@@ -53,19 +73,31 @@ func AllMovement():
 func move_top():
 	if Input.is_action_pressed("move_top"):
 		velocity.y = - Speedvelocity
+		if Input.is_action_pressed("Sprint"):
+			TD_animation()
+		else:
+			Stand_animation()
 func move_down():
 	if Input.is_action_pressed("move_down"):
 		velocity.y = Speedvelocity
+		if Input.is_action_pressed("Sprint"):
+			TD_animation()
+		else:
+			Stand_animation()
 func move_left():
 	if Input.is_action_pressed("move_left"):
 		velocity.x = - Speedvelocity
 		if Input.is_action_pressed("Sprint"):
 				LR_animation()
+		else:
+			Stand_animation()
 func move_right():
 	if Input.is_action_pressed("move_right"):
 		velocity.x =  Speedvelocity
 		if Input.is_action_pressed("Sprint"):
 				LR_animation()
+		else:
+			Stand_animation()
 func shoot():
 	if Input.is_action_just_pressed("shooting"):   
 		shooting_management()
@@ -86,9 +118,13 @@ func active_shield():
 
 
 # Player animation management
+func Stand_animation():
+	$Animation/LR.play("Stand")
 func LR_animation():
 	#left and right while sprinting
-	$Animation/LR.play("LR")
+	$Animation/LR.play("LeftRight")
+func TD_animation():
+	$Animation/LR.play("TopDown")
 func damage_animeted() :
 	#Ennemie damage
 	$Animation/LR.play("Damage")
@@ -119,9 +155,6 @@ func take_damage(enemi):
 	if Health <= 0:
 		death()
 	health_update()
-	print("Enmy Damage :",enemi.damage)
-	print("Shield :",Shield)
-	print("Health :",Health)
 func take_damage_second_way(enemi):
 	Health -= enemi
 	if Health <= 0:
@@ -139,29 +172,40 @@ func death():
 # Player attaque Management
 func shooting_management():
 		var Projectilles1 = projectille_instance.instantiate()
-		var Projectilles2 = projectille_instance.instantiate()
-		var Projectilles3 = projectille_instance.instantiate()
+		var Projectilles1_2 = projectille_instance.instantiate()
+		var Projectilles1_3 = projectille_instance.instantiate()
+		
+		var Projectilles2_1 = projectille_instance2.instantiate()
+		var Projectilles2_2 = projectille_instance2.instantiate()
+		var Projectilles2_3 = projectille_instance2.instantiate()
+		
+		var Projectilles3_1 = projectille_instance3.instantiate()
+		var Projectilles3_2 = projectille_instance3.instantiate()
+		var Projectilles3_3 = projectille_instance3.instantiate()
 		
 		if Ratata_a_2_Gun == true :
-			Projectilles1.global_position = $Attaque/Projectile_Spawn/RT2.global_position
-			Projectilles2.global_position = $Attaque/Projectile_Spawn/RT1.global_position
+			Projectilles2_1.global_position = $Attaque/Projectile_Spawn/RT2.global_position
+			Projectilles2_2.global_position = $Attaque/Projectile_Spawn/RT1.global_position
 			
  	
 		if Ratata_a_3_Gun == true :
-			Projectilles1.global_position = $Attaque/Projectile_Spawn.global_position 
-			Projectilles3.global_position = $Attaque/Projectile_Spawn/RT2.global_position
-			Projectilles2.global_position = $Attaque/Projectile_Spawn/RT1.global_position
+			Projectilles3_1.global_position = $Attaque/Projectile_Spawn.global_position 
+			Projectilles3_2.global_position = $Attaque/Projectile_Spawn/RT2.global_position
+			Projectilles3_3.global_position = $Attaque/Projectile_Spawn/RT1.global_position
 			
 		if Ratata_a_2_Gun == false and Ratata_a_3_Gun == false :Projectilles1.global_position = $Attaque/Projectile_Spawn.global_position 
 			
 		owner.add_child(Projectilles1)
 		
 		if Ratata_a_2_Gun == true:
-			owner.add_child(Projectilles2)
+			owner.add_child(Projectilles2_1)
+			owner.add_child(Projectilles2_2)
 			
 		if Ratata_a_3_Gun == true:
-			owner.add_child(Projectilles2)
-			owner.add_child(Projectilles3)   
+			owner.add_child(Projectilles3_1)
+			owner.add_child(Projectilles3_2)  
+			owner.add_child(Projectilles3_3)
+			 
 
 # Player Power and Shield Management
 func get_heal(object):

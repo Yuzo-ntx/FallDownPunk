@@ -10,19 +10,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("make_pause"):
 		_on_pause_pressed()
+	if Input.is_action_just_pressed("Launch"):
+		_on_pause_pressed()
 	return
 
 func _on_play_button_pressed() -> void:
 	get_tree().current_scene.get_tree().paused = false
 	get_tree().current_scene.Menu.visible = false
-	level.Show_Setting(false)
+	get_tree().current_scene.Show_Setting(false)
 	pass # Replace with function body.
 
 
 func _on_setting_button_pressed() -> void:
 	level.Show_Setting(true)
-	return # Replace with function body.
-
+	return
 
 func _on_quit_button_pressed() -> void:
 	get_tree().current_scene.get_tree().quit()

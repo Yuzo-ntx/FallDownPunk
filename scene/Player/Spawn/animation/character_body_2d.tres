@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://6iuvrn85tcyn"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://6iuvrn85tcyn"]
 
 [ext_resource type="Texture2D" uid="uid://dvfjmc24030fo" path="res://asset/Damage/playerShip1_damage1.png" id="1_xbsbn"]
 [ext_resource type="Texture2D" uid="uid://nt2twxeune2t" path="res://asset/Damage/playerShip1_damage2.png" id="2_cxxvo"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cfu4f6li1dyrr" path="res://asset/Player/playerShip2_orange.png" id="8_ekrma"]
 [ext_resource type="Texture2D" uid="uid://dvsqeukk77umm" path="res://asset/Damage/playerShip3_damage2.png" id="8_gtpp8"]
 [ext_resource type="Texture2D" uid="uid://dkic7qinkg61r" path="res://asset/Player/playerShip2_red.png" id="9_8l2he"]
+[ext_resource type="Texture2D" uid="uid://bbk0mw8i5pyjw" path="res://asset/Player/playerShip1_red.png" id="10_j4ypa"]
+[ext_resource type="Texture2D" uid="uid://808i6gaqosdo" path="res://asset/Player/playerShip3_red.png" id="12_ekrma"]
+[ext_resource type="Texture2D" uid="uid://d1vegrwf6p1ed" path="res://asset/Player/playerShip1_orange.png" id="14_8l2he"]
+[ext_resource type="Texture2D" uid="uid://dguyinhlmmkmw" path="res://asset/Player/playerShip3_orange.png" id="15_h6h3k"]
 
 [resource]
 resource_name = "LR_animation"
@@ -40,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_gtpp8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"DIE",
 "speed": 60.0
 }, {
@@ -75,34 +79,46 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_j4ypa")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Damage",
 "speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_ekrma")
-}, {
-"duration": 1.0,
 "texture": ExtResource("9_8l2he")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_j4ypa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ekrma")
 }],
-"loop": false,
-"name": &"LR",
-"speed": 5.0
+"loop": 1,
+"name": &"LeftRight",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_ekrma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h6h3k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Stand",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_ekrma")
+}, {
+"duration": 0.5,
+"texture": ExtResource("14_8l2he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h6h3k")
 }],
-"loop": true,
-"name": &"TD",
-"speed": 5.0
+"loop": 1,
+"name": &"TopDown",
+"speed": 7.0
 }]
